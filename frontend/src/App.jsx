@@ -1,8 +1,8 @@
-import Navbar from './components/Navbar';
+import Router from './routes';
 
 const App = () => (
   <div className="App">
-    <Navbar />
+    <Router />
   </div>
 );
 
