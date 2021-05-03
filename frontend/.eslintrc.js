@@ -16,8 +16,18 @@ module.exports = {
   },
   plugins: [
     'react',
+    'testing-library',
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
   },
+  overrides: [
+    {
+      files: [
+        '**/*.test.js',
+        '**/*.test.jsx',
+      ],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
 };
