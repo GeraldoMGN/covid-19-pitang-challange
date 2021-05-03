@@ -20,6 +20,9 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/label-has-associated-control': [2, {
+      controlComponents: ['Field'],
+    }],
   },
   overrides: [
     {
