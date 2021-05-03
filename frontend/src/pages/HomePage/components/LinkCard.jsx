@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const LinkCard = ({ Icon, text, linkTo }) => (
-  <div className="card">
+  <div className="card mb-2">
     <div className="card-body">
       <Icon size={100} className="w-100 text-secondary" />
       <h5 className="card-title text-center">

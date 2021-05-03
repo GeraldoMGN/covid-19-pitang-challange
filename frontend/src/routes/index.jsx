@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Home from '../pages/Home';
+import HomePage from '../pages/HomePage';
 
 const Router = () => (
   <BrowserRouter>
@@ -14,7 +14,7 @@ const Router = () => (
         <div>listing</div>
       </Route>
       <Route path="/">
-        <Home />
+        <HomePage />
       </Route>
     </Switch>
   </BrowserRouter>
