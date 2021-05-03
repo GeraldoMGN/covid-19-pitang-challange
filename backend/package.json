@@ -2,7 +2,7 @@
   "name": "covid-19-pitang-challenge-server",
   "version": "1.0.0",
   "description": "Backend for COVID-19 Pitang Challenge",
-  "main": "app.js",
+  "main": "src/app.js",
   "repository": "git@github.com:GeraldoMGN/covid-19-pitang-challenge.git",
   "author": "Geraldo Galvao <gmgn@cin.ufpe.br>",
   "license": "MIT",
