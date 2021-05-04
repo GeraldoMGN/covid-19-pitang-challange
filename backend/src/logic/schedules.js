@@ -4,7 +4,7 @@ import {
 
 const schedules = [];
 
-const getAll = () => [...schedules];
+const getAll = () => [...schedules].sort((a, b) => a.vaccinationDate - b.vaccinationDate);
 
 const remove = (id) => schedules.splice(
   schedules.findIndex((elem) => elem.id === id), 1,
