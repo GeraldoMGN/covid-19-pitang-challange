@@ -44,8 +44,7 @@ const ScheduleForm = ({ onSubmissionError }) => {
         const response = await addSchedule(date, name, dateOfBirth);
 
         if (response === 'Vacinação agendada!') {
-          // TODO: User feedback on success
-          history.push('/');
+          history.push('/listing');
         } else {
           onSubmissionError(response);
         }
