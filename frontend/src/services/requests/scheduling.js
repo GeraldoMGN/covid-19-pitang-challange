@@ -13,11 +13,12 @@ const addSchedule = async (vaccinationDate, name, birthDate) => {
 };
 
 const getAllSchedules = async () => {
-  try {
-    return axios.get('/scheduling');
-  } catch (error) {
-    return error;
-  }
+  let response;
+  await axios.get('/scheduling')
+    .then((res) => { response = res.data; })
+    .catch(() => { response = []; });
+
+  return response;
 };
 
 export { addSchedule, getAllSchedules };

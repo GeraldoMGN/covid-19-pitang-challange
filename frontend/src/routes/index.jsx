@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { HomePage, SchedulePage } from '../pages';
+import { HomePage, SchedulePage, ListingPage } from '../pages';
 
 const Router = () => (
   <BrowserRouter>
@@ -11,7 +11,7 @@ const Router = () => (
         <SchedulePage />
       </Route>
       <Route path="/listing">
-        <div>listing</div>
+        <ListingPage />
       </Route>
       <Route path="/">
         <HomePage />
