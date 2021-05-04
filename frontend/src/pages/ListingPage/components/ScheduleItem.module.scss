@@ -8,9 +8,15 @@
 }
 
 .patientName {
+  font-size: $font-size-sm;
   height: 38px;
-  line-height: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    line-height: 38px;
+    font-size: $font-size-base;
+  }
 }

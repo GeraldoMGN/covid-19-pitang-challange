@@ -7,14 +7,14 @@ const ScheduleItem = ({ data }) => {
 
   return (
     <div className={`row ${scheduleItemContainer}`}>
-      <div className="col-3 d-flex align-items-center justify-content-center">
-        <p>{formattedDate}</p>
+      <div className="col-12 col-md-3 d-flex align-items-center justify-content-center">
+        <p className="fw-bold">{formattedDate}</p>
       </div>
-      <div className="col-5">
+      <div className="col-6 col-md-5">
         <p className={patientName}>{data[0].name}</p>
         {data[1] && <p className={patientName}>{data[1].name}</p>}
       </div>
-      <div className="col-4">
+      <div className="col-6 col-md-4">
         <SituationSelect data={data[0]} />
         {data[1] && <SituationSelect data={data[1]} />}
       </div>
