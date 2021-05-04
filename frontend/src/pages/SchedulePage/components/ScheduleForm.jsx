@@ -1,12 +1,13 @@
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 import { addSchedule } from '../../../services/requests/scheduling';
-import ScheduleTimePicker from './ScheduleTimePicker';
+import TimeSelect from '../../../components/TimeSelect';
 
 const ScheduleForm = ({ onSubmissionError }) => {
   const history = useHistory();
@@ -82,6 +83,7 @@ const ScheduleForm = ({ onSubmissionError }) => {
                   maxDate={(new Date()).getTime()}
                   onBlur={() => setFieldTouched('dateOfBirth', true)}
                   wrapperClassName="w-100"
+                  autoComplete="off"
                 />
                 <ErrorMessage className="text-danger" name="dateOfBirth" component="div" />
               </div>
@@ -92,7 +94,14 @@ const ScheduleForm = ({ onSubmissionError }) => {
             <div className="row">
               <div className="col-12 col-sm-6 mb-3">
                 <label htmlFor="vaccinationTime" className="form-label w-100">Horário</label>
-                <ScheduleTimePicker className={handleIsInvalidClass('vaccinationTime')} />
+                <TimeSelect
+                  className={handleIsInvalidClass('vaccinationTime')}
+                  startHour={8}
+                  endHour={18}
+                  minutesBetween={30}
+                  name="vaccinationTime"
+                  placeholder=" Selecione o horário"
+                />
                 <ErrorMessage className="text-danger" name="vaccinationTime" component="div" />
               </div>
               <div className="col-12 col-sm-6 mb-3">
@@ -106,6 +115,7 @@ const ScheduleForm = ({ onSubmissionError }) => {
                   minDate={(new Date()).getTime()}
                   onBlur={() => setFieldTouched('vaccinationDate', true)}
                   wrapperClassName="w-100"
+                  autoComplete="off"
                 />
                 <ErrorMessage className="text-danger" name="vaccinationDate" component="div" />
               </div>
