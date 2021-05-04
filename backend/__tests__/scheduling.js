@@ -1,14 +1,25 @@
 /* eslint-disable no-undef */
 import request from 'supertest';
 import startServer from '../src/app.js';
+import { removeAll } from '../src/repositories/schedules.js';
+
+beforeEach(() => removeAll());
+
+const addSchedule = async (app, personBody) => {
+  await request(app)
+    .post('/scheduling')
+    .send(personBody)
+    .set('Content-Type', 'application/json');
+};
 
 describe('Test getAll schedules', () => {
-  it('It should respond OK', () => {
+  it('It should respond OK', (done) => {
     const app = startServer();
 
     request(app)
       .get('/scheduling')
-      .expect(200);
+      .expect(200)
+      .then(() => done());
   });
 });
 
@@ -35,14 +46,8 @@ describe('Test add schedules', () => {
       birthDate: new Date(),
     };
 
-    await request(app)
-      .post('/scheduling')
-      .send({
-        ...personBody,
-        name: 'John Smith',
-      })
-      .set('Content-Type', 'application/json')
-      .expect(200);
+    await addSchedule(app, personBody);
+    await addSchedule(app, personBody);
 
     await request(app)
       .post('/scheduling')
@@ -53,7 +58,7 @@ describe('Test add schedules', () => {
       .set('Content-Type', 'application/json')
       .then((response) => {
         expect(response.statusCode).toBe(400);
-        expect(response.text).toBe('Too many scheduled vaccinations at this time.');
+        expect(response.text).toBe('Limite de agendamento para esta hora atingido, tente outro horário.');
       });
 
     await request(app)
