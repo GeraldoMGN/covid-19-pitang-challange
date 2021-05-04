@@ -18,7 +18,7 @@ const ScheduleTable = ({ data }) => {
   return (
     <div>
       {groupedData && groupedData.map((item) => (
-        <ScheduleItem data={item} />
+        <ScheduleItem key={item[0].vaccinationDate} data={item} />
       ))}
     </div>
   );
@@ -29,6 +29,7 @@ ScheduleTable.propTypes = {
     id: PropTypes.number,
     vaccinationDate: PropTypes.string,
     name: PropTypes.string,
+    situation: PropTypes.string,
   })),
 };
 

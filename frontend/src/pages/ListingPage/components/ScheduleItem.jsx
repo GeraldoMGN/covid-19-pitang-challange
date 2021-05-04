@@ -1,24 +1,22 @@
 import PropTypes from 'prop-types';
+import { scheduleItemContainer, patientName } from './ScheduleItem.module.scss';
+import SituationSelect from './ScheduleSituationSelect';
 
 const ScheduleItem = ({ data }) => {
   const formattedDate = (new Date(data[0].vaccinationDate)).toLocaleString('pt-BR');
 
   return (
-    <div className="row">
-      <div className="col-3 d-flex align-items-center">
+    <div className={`row ${scheduleItemContainer}`}>
+      <div className="col-3 d-flex align-items-center justify-content-center">
         <p>{formattedDate}</p>
       </div>
       <div className="col-5">
-        <p>{data[0].name}</p>
-        {data[1] && <p>{data[1].name}</p>}
+        <p className={patientName}>{data[0].name}</p>
+        {data[1] && <p className={patientName}>{data[1].name}</p>}
       </div>
-      <div className="col-2">
-        <p>{data[0].attended}</p>
-        {data[1] && <p>{data[1].attended}</p>}
-      </div>
-      <div className="col-2">
-        <p>{data[0].vaccinated}</p>
-        {data[1] && <p>{data[1].vaccinated}</p>}
+      <div className="col-4">
+        <SituationSelect data={data[0]} />
+        {data[1] && <SituationSelect data={data[1]} />}
       </div>
     </div>
   );
@@ -29,8 +27,7 @@ ScheduleItem.propTypes = {
     id: PropTypes.number,
     vaccinationDate: PropTypes.string,
     name: PropTypes.string,
-    attended: PropTypes.bool,
-    vaccinated: PropTypes.bool,
+    situation: PropTypes.string,
   })).isRequired,
 };
 

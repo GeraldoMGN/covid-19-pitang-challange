@@ -1,0 +1,16 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+.scheduleItemContainer {
+  background-color: $gray-100;
+  margin-bottom: $spacer;
+  padding-top: $spacer;
+  border-radius: 1rem;
+}
+
+.patientName {
+  height: 38px;
+  line-height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -21,4 +21,17 @@ const getAllSchedules = async () => {
   return response;
 };
 
-export { addSchedule, getAllSchedules };
+const updateScheduleSituation = async (id, situation) => {
+  let response;
+  await axios.post(`/scheduling/situation/${id}`, null, {
+    params: {
+      situation,
+    },
+  })
+    .then((res) => { response = res.data; })
+    .catch((err) => { response = err.response.data; });
+
+  return response;
+};
+
+export { addSchedule, getAllSchedules, updateScheduleSituation };
