@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAll } from '../logic/schedules.js';
+import { getAll, add } from '../logic/schedules.js';
 
 const route = Router();
 
@@ -9,5 +9,18 @@ export default (app) => {
   route.get('/', (_, res) => {
     const schedules = getAll();
     return res.json(schedules).status(200);
+  });
+
+  route.post('/', (req, res) => {
+    let result = null;
+    try {
+      result = add(req.body);
+    } catch {
+      return res.status(500);
+    }
+
+    return result.error
+      ? res.status(400).send(result.error)
+      : res.status(200).send(result.message);
   });
 };
