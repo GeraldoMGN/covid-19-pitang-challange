@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getAll, add, updateSituation } from '../logic/schedules.js';
+import { getAll, add, updateSituation } from '../controllers/schedules.js';
 
 const route = Router();
 

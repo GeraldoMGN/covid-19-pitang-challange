@@ -1,20 +1,11 @@
 import {
   age, sameDay, sameMinute, ELDERLY_AGE,
 } from '../utils/date.js';
+import {
+  get, update, remove, getAll as getAllRepository, add as addRepository,
+} from '../repositories/schedules.js';
 
-const schedules = [];
-
-const get = (id) => schedules.find((elem) => elem.id === id);
-
-const getAll = () => [...schedules].sort((a, b) => a.vaccinationDate - b.vaccinationDate);
-
-const update = (id, schedule) => {
-  schedules[schedules.findIndex((elem) => elem.id === id)] = schedule;
-};
-
-const remove = (id) => schedules.splice(
-  schedules.findIndex((elem) => elem.id === id), 1,
-);
+const getAll = () => getAllRepository().sort((a, b) => a.vaccinationDate - b.vaccinationDate);
 
 const schedulesOnDay = (date) => getAll().reduce((acc, cur) => (
   sameDay(date, cur.vaccinationDate) ? acc.concat(cur) : acc), []);
@@ -59,7 +50,7 @@ const add = (schedule) => {
 
   if (!canScheduleOnDay(date)) return { error: 'Limite de agendamento para este dia atingido, tente outro dia.' };
 
-  schedules.push({
+  addRepository({
     id: Date.now(),
     vaccinationDate: date,
     name: schedule.name,
