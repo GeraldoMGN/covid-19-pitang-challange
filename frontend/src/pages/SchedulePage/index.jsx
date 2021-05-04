@@ -7,10 +7,13 @@ const SchedulePage = () => {
   return (
     <div className="container mt-5">
       <div className={scheduleContainer}>
-        <h3>Agende sua vacinação</h3>
+        <h3>Agende a vacinação</h3>
         <p>
-          É necessário informar seu nome, data de nascimento, além do dia e
-          horário para o agendamento.
+          É necessário informar o nome, data de nascimento, além do dia e
+          horário para o agendamento do paciente.
+        </p>
+        <p className="text-secondary">
+          Idosos acima de 65 anos terão preferência.
         </p>
       </div>
       <div className={scheduleContainer}>

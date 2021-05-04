@@ -20,10 +20,10 @@ const ScheduleForm = ({ onSubmissionError }) => {
         const errors = {};
 
         if (!values.name) {
-          errors.name = 'Insira seu nome';
+          errors.name = 'Insira o nome do paciente';
         }
         if (!values.dateOfBirth) {
-          errors.dateOfBirth = 'Insira sua data de nascimento';
+          errors.dateOfBirth = 'Insira a data de nascimento do paciente';
         }
         if (!values.vaccinationTime) {
           errors.vaccinationTime = 'Insira o horário de vacinação';
@@ -87,7 +87,7 @@ const ScheduleForm = ({ onSubmissionError }) => {
               </div>
             </div>
             <div className="row my-3">
-              <h5>Quando você quer ser vacinado?</h5>
+              <h5>Quando vai ser vacinado?</h5>
             </div>
             <div className="row">
               <div className="col-12 col-sm-6 mb-3">

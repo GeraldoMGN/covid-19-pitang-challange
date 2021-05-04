@@ -26,7 +26,8 @@ const SituationSelect = ({ data }) => {
   return (
     <select className={`form-select mb-3 ${validationClassName()}`} onChange={onChange} value={selected}>
       <option value="scheduled">Agendado</option>
-      <option value="vaccinated">Atendido e Vacinado</option>
+      <option value="missed">Não compareceu</option>
+      <option value="vaccinated">Atendido e vacinado</option>
       <option value="not_vaccinated">Atendido e não vacinado</option>
     </select>
   );
