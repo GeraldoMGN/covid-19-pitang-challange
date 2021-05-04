@@ -4,7 +4,13 @@ import {
 
 const schedules = [];
 
+const get = (id) => schedules.find((elem) => elem.id === id);
+
 const getAll = () => [...schedules].sort((a, b) => a.vaccinationDate - b.vaccinationDate);
+
+const update = (id, schedule) => {
+  schedules[schedules.findIndex((elem) => elem.id === id)] = schedule;
+};
 
 const remove = (id) => schedules.splice(
   schedules.findIndex((elem) => elem.id === id), 1,
@@ -58,9 +64,22 @@ const add = (schedule) => {
     vaccinationDate: date,
     name: schedule.name,
     birthDate: new Date(schedule.birthDate),
+    situation: 'scheduled',
   });
 
   return { message: 'Vacinação agendada!' };
 };
 
-export { getAll, add };
+const updateSituation = (id, newSituation) => {
+  const schedule = get(id);
+
+  console.log(schedule);
+  if (!schedule) return { error: 'Agendamento não encontrado.' };
+
+  schedule.situation = newSituation;
+  update(id, schedule);
+
+  return { message: 'Situação atualizada.' };
+};
+
+export { getAll, add, updateSituation };
