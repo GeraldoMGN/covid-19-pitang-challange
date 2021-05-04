@@ -30,7 +30,7 @@ const removeScheduleForElderly = (date) => {
   const olderAtTime = schedulesToday.map((item) => ({
     age: age(item.birthDate),
     id: item.id,
-  })).sort((a, b) => a.age - b.age).slice(-1)[0];
+  })).sort((a, b) => b.age - a.age).slice(-1)[0];
 
   if (olderAtTime && olderAtTime.age < ELDERLY_AGE) remove(olderAtTime.id);
 };
