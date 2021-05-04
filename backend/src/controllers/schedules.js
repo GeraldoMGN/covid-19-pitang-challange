@@ -64,7 +64,6 @@ const add = (schedule) => {
 const updateSituation = (id, newSituation) => {
   const schedule = get(id);
 
-  console.log(schedule);
   if (!schedule) return { error: 'Agendamento não encontrado.' };
 
   schedule.situation = newSituation;

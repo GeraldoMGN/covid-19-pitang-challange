@@ -12,7 +12,7 @@ const addSchedule = async (app, personBody) => {
     .set('Content-Type', 'application/json');
 };
 
-describe('Test getAll schedules', () => {
+describe('Get all schedules', () => {
   it('It should respond OK', (done) => {
     const app = startServer();
 
@@ -23,7 +23,7 @@ describe('Test getAll schedules', () => {
   });
 });
 
-describe('Test add schedules', () => {
+describe('Add schedules', () => {
   it('It should add correctly', async () => {
     const app = startServer();
 
@@ -68,6 +68,32 @@ describe('Test add schedules', () => {
         expect(response.statusCode).toBe(200);
         expect(response.body.length).toBe(2);
         done();
+      });
+  });
+});
+
+describe('Update situation', () => {
+  it('It should respond OK', async (done) => {
+    const app = startServer();
+    const personBody = {
+      vaccinationDate: new Date(),
+      name: 'John Doe',
+      birthDate: new Date(),
+    };
+
+    await addSchedule(app, personBody);
+
+    request(app)
+      .get('/scheduling')
+      .expect(200)
+      .end((_, res) => {
+        request(app)
+          .post(`/scheduling/situation/${res.body[0].id}`)
+          .query({ situation: 'vaccinated' })
+          .expect(200)
+          .then(() => {
+            done();
+          });
       });
   });
 });
