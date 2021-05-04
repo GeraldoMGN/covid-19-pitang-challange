@@ -3,6 +3,7 @@ import {
 } from 'formik';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { addSchedule } from '../../../services/requests/scheduling';
 import ScheduleTimePicker from './ScheduleTimePicker';
 
 const ScheduleForm = () => (
@@ -27,6 +28,14 @@ const ScheduleForm = () => (
       }
 
       return errors;
+    }}
+    onSubmit={async ({
+      name, dateOfBirth, vaccinationTime, vaccinationDate,
+    }) => {
+      const date = new Date(vaccinationDate);
+      const time = new Date(vaccinationTime);
+      date.setHours(time.getHours(), time.getMinutes());
+      await addSchedule(date, name, dateOfBirth);
     }}
   >
     {({
