@@ -51,7 +51,7 @@ const ScheduleForm = ({ onSubmit }) => (
                 id="name"
                 placeholder="Insira seu nome"
               />
-              <ErrorMessage className="text-danger" name="name" component="div" />
+              <ErrorMessage data-testid="nameError" className="text-danger" name="name" component="div" />
             </div>
             <div className="col-12 col-sm-4 mb-3">
               <label htmlFor="dateOfBirth" className="form-label w-100">Data de Nascimento</label>
@@ -83,7 +83,7 @@ const ScheduleForm = ({ onSubmit }) => (
                 name="vaccinationTime"
                 placeholder=" Selecione o horário"
               />
-              <ErrorMessage className="text-danger" name="vaccinationTime" component="div" />
+              <ErrorMessage data-testid="vaccinationTimeError" className="text-danger" name="vaccinationTime" component="div" />
             </div>
             <div className="col-12 col-sm-6 mb-3">
               <label htmlFor="vaccinationDate" className="form-label w-100">Data</label>
