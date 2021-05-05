@@ -11,28 +11,46 @@ There is a listing page where the user can see the schedule, and update the outc
 ### Front-end
 ``` 
 cd frontend
-
+```
+Install dependencies:
+```
+yarn install
+# or 
+npm i
+```
+Run project:
+```
 yarn start
-# Or 
+# or 
 npm start
-
-# To run tests
+```
+To run tests:
+```
 yarn test
-# Or 
+# or 
 npm test
 ```
 
 ### Back-end
 ``` 
 cd backend
-
+```
+Install dependencies:
+```
+yarn install
+# or 
+npm i
+```
+Run project:
+```
 yarn start
-# Or 
+# or 
 npm start
-
-# To run tests
+```
+To run tests:
+```
 yarn test
-# Or 
+# or 
 npm test
 ```
 
