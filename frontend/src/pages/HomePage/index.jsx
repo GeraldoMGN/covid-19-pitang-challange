@@ -15,7 +15,7 @@ const HomePage = () => (
     <div className="row mb-5">
       <div className="col-md col-lg-6">
         <LinkCard
-          text="Agende sua vacinação"
+          text="Agende a vacinação"
           linkTo="/schedule"
           Icon={MdEventAvailable}
         />
