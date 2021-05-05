@@ -1,14 +1,14 @@
 import { MdEventAvailable, MdViewList } from 'react-icons/md';
 import LinkCard from './components/LinkCard';
 import vaccinationImage from '../../assets/vaccination.jpg';
-import styles from './index.module.scss';
+import { featureImage } from './index.module.scss';
 
 const HomePage = () => (
   <div className="container">
     <div className="row mt-5 mb-5">
       <img
         src={vaccinationImage}
-        className={styles.feature_image}
+        className={featureImage}
         alt="vaccination"
       />
     </div>
