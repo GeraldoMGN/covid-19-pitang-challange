@@ -9,46 +9,46 @@ There is a listing page where the user can see the schedule, and update the outc
 
 ## How to run?
 ### Front-end
-``` 
+``` bash
 cd frontend
 ```
 Install dependencies:
-```
+```bash
 yarn install
 # or 
 npm i
 ```
 Run project:
-```
+```bash
 yarn start
 # or 
 npm start
 ```
 To run tests:
-```
+```bash
 yarn test
 # or 
 npm test
 ```
 
 ### Back-end
-``` 
+``` bash
 cd backend
 ```
 Install dependencies:
-```
+```bash
 yarn install
 # or 
 npm i
 ```
 Run project:
-```
+```bash
 yarn start
 # or 
 npm start
 ```
 To run tests:
-```
+```bash
 yarn test
 # or 
 npm test
